@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs"></script>
+    <script>
+      // Your JavaScript code here
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var latitude = position.coords.latitude;
+          var longitude = position.coords.longitude;
+          console.log('Latitude: ' + latitude + ', Longitude: ' + longitude);
+
+          // Set the values of the hidden input fields
+          document.getElementById('latitude').value = latitude;
+          document.getElementById('longitude').value = longitude;
+          
+          // Submit the form
+          submitForm();
+        });
+      } else {
+        console.log('Geolocation is not supported by this browser.');
+      }
+
+      function submitForm() {
+        // Submit the form
+        document.getElementById('myForm').submit();
+      }
+    </script>
+  </head>
+  <body>
+    <div class="swipe-container">
+      <div class="content">
+        <h1>Welcome to Park Place Memo</h1>
+        <p>Swipe right to use the app or left for more information</p>
+        <form id="myForm" action="upload.php" method="POST" enctype="multipart/form-data">
+          <input type="file" name="fileToUpload" id="fileToUpload">
+          <input type="hidden" name="latitude" id="latitude">
+          <input type="hidden" name="longitude" id="longitude">
+          <input type="submit" value="Upload File">
+        </form>
+      </div>
+      <div class="description">
+        <h2>Park Place Memo App</h2>
+        <p>The Park Place Memo App is a digital note-taking tool that helps users remember where they've parked their car in large outdoor parking areas, with a history function that allows users to track their parking habits and patterns over time. The app also includes tools to help users navigate and explore the parking area, such as custom maps and information about nearby facilities. Overall, the Park Place Memo App is a useful tool for anyone who struggles to remember where they've parked their car in outdoor parking areas.</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+.swipe-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, #FFB75E, #ED8F03);
+        transition: background 0.3s ease-in-out;
+      }
+
+      .content {
+        text-align: center;
+        color: white;
+        font-size: 1.5em;
+      }
+
+      .description {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50%;
+        padding: 1em;
+        color: white;
+        background: #ED8F03;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%);
+        overflow-y: scroll;
+      }
+
+      .show-description .description {
+        transform: translateX(0);
+      }
+
+body {
+  overflow: hidden;
+  touch-action: none;
+}
